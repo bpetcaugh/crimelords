@@ -3,11 +3,11 @@ import math
 import random
 
 class GameObject():
-    #Type:Base, Building, 
+    #Type:Base, Building,
     #Location: (x,y)
     #Team: "R", "B", or None
     def __init__(self, t, loc, color, i):
-        self.id = random.randint(100, 1000)
+        self.id = id(self)
         self.type = t
         self.location = loc
         self.team = color
@@ -30,7 +30,7 @@ class GameObject():
 
     def set_icon(self, i):
         self.icon = i
-    
+
     def get_location_string(self):
         return "(" + str(self.location[0]) + "," + str(self.location[1]) + ")"
 
