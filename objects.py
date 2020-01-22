@@ -40,15 +40,18 @@ class Unit(GameObject):
 
 class Demo(Unit):
     def __init__(self, t, loc, color, i):
-        self.hp=100
+        self.hp=300
         self.charge=1
+        self.move_max=2
+        self.ap=0
         self.alive=True
-        self.ap=
         super(Soldier, self).__init__(t, loc, color, i)
+    
+    def capture():
 
 class Base(Unit):
     def __init__(self, t, loc, color, i):
-        self.hp = 300
+        self.hp = 2000
         self.ap = 0
         self.mp = 0
         self.move_max = 0
