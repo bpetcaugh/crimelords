@@ -46,8 +46,20 @@ class Demo(Unit):
         self.ap=0
         self.alive=True
         super(Soldier, self).__init__(t, loc, color, i)
+
+class Charge(Unit):
+    def __init__(self, t, loc, color, i):
+        self.turns=3
+        super(Unit, self).__init__(t, loc, color, i)
     
-    def capture():
+    def countdown(self):
+        if self.turns>=0:
+            self.turns-=1
+        if self.turns==0:
+            Detonate(self)
+
+    def Detonate(self, t, loc, color, i):
+        self.radius=3
 
 class Base(Unit):
     def __init__(self, t, loc, color, i):
