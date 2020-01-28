@@ -22,8 +22,12 @@ class Map: # always 40x40 i am not going to have size changeable shh
 		self.map[y][x] = obj
 
 	def move(self, x1, y1, x2, y2): # src, dest
-		self.map[y2][x2] = self.map[y1][x1]
-		self.map[y1][x1] = "--" # hopefully robots cannot visibly inhabit anything but empty spaces. lmk if this is not the case
+		if self.mal[y2][x2] != "--":
+			return False
+		else:
+			self.map[y2][x2] = self.map[y1][x1]
+			self.map[y1][x1] = "--" # hopefully robots cannot visibly inhabit anything but empty spaces. lmk if this is not the case
+		return True
 
 	def tile_at(self, x, y):
 		return self.map[y][x]
