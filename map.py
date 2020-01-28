@@ -25,6 +25,9 @@ class Map: # always 40x40 i am not going to have size changeable shh
 		self.map[y2][x2] = self.map[y1][x1]
 		self.map[y1][x1] = "--" # hopefully robots cannot visibly inhabit anything but empty spaces. lmk if this is not the case
 
+	def tile_at(self, x, y):
+		return self.map[y][x]
+
 	def __repr__(self):
 		out = ""
 		for row in self.map:
