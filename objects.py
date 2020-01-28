@@ -47,6 +47,49 @@ class Demo(Unit):
         self.alive=True
         super(Soldier, self).__init__(t, loc, color, i)
 
+    def move(self, loc, objects):
+    #Checks if various conditions are met
+    #Returns True if the move was successful, otherwise returns False
+        canMove = True
+        for o in objects:
+            if o.get_location() == loc:
+                canMove = False
+
+        if canMove:
+            if (0 <= loc[0] < 20) and (0 <= loc[1] < 20):
+                if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
+                    if (abs(loc[0] - self.location[0]) <= self.move_max) and (abs(loc[1] - self.location[1]) <= self.move_max):
+                        self.location = loc
+                        return True
+        return False
+
+    def strike(self, loc, objects):
+    #Checks for valid location
+        validLoc = False
+        if (0 <= loc[0] < 20) and (0 <= loc[1] < 20):
+            if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
+                if (abs(loc[0] - self.location[0]) <= self.attack_max) and (abs(loc[1] - self.location[1]) <= self.attack_max):
+                    validLoc = True
+
+        #Checks if object can be attacked
+        canStrike = False
+        if validLoc:
+            for o in objects:
+                if o.get_location() == loc:
+                    if o.get_type() in ["Demo"]:
+                        o.modify_hp(-self.ap)
+                        canStrike = True
+
+        return canStrike
+
+    def take_action(self, list, objects, color, player):
+        if self.alive:
+            if 'move' in list[0]:
+                self.move(list[0]['move'], objects)
+            elif 'strike' in list[0]:
+                self.strike(list[0]['strike'], objects)
+'''
+#Depending on if demo is suicide bomber or not.
 class Charge(Unit):
     def __init__(self, t, loc, color, i):
         self.turns=3
@@ -60,10 +103,10 @@ class Charge(Unit):
 
     def Detonate(self, t, loc, color, i):
         self.radius=3
-
+'''
 class Base(Unit):
     def __init__(self, t, loc, color, i):
-        self.hp = 2000
+        self.hp = 200
         self.ap = 0
         self.mp = 0
         self.move_max = 0
