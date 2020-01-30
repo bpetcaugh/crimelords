@@ -38,20 +38,14 @@ class Unit(GameObject):
     def __init__(self, t, loc, color, i):
         super(Unit, self).__init__(t, loc, color, i)
 
-class Demo(Unit):
-    def __init__(self, t, loc, color, i):
-        self.hp=100
-        self.charge=1
-        self.alive=True
-        self.ap=
-        super(Soldier, self).__init__(t, loc, color, i)
-
 class Base(Unit):
-    def __init__(self, t, loc, color, i):
-        self.hp = 300
-        self.ap = 0
-        self.mp = 0
-        self.move_max = 0
-        self.build_max = 1
-        self.alive = True
-        super(Base, self).__init__(t, loc, color, i)
+    def __init__(self, hp, move_max, melee_dmg, melee_rng, cost, drop, alive_state):
+        self.hp = 100
+        self.move_max = 5
+        self.melee_dmg = 25
+        self.melee_rng = 1
+        self.cost = 10 
+        self.drop = 5 
+        self.color = ""
+        self.alive_state= True
+        super(Base, self).__init__( hp, move_max, melee_dmg, melee_rng, cost, drop, alive_state)
