@@ -15,17 +15,17 @@ Gain control over the city of Cheyenne by one of 2 ways
     -	coercing new members into joining
     -	Upgrade HQ to get new unit abilities (or make new units available to buy)
 
-##Units
+## Units
 Note: A unit cannot move and attack in the same turn
 
-###Mafioso - basic melee unit
+### Mafioso - basic melee unit
   -	5 tile move range per turn
   -	100 Health
   -	25 melee damage- within 1 tile
   -	Cost: 10 dollars
   -	Drop: 5 dollars
 
-###Assassin - ranged unit
+### Assassin - ranged unit
   -	10 tile move range per turn
   -	50 health
   -	50 ranged damage-within 5 tiles
@@ -33,7 +33,7 @@ Note: A unit cannot move and attack in the same turn
   -	Cost: 20 dollars
   -	Drop: 10 dollars
 
-###DEMOLITION SQUAD - take out buildings
+### DEMOLITION SQUAD - take out buildings
   -	Has 1 charge, that do damage to all nearby enemies. They also do damage to restaurants (main bases).
   - It takes 2 charges to destroy a base
   -	750 Health
@@ -43,24 +43,31 @@ Note: A unit cannot move and attack in the same turn
   -	abilities:
     -	demo - deal damage to multiple nearby units, and buildings
 
-##Game Environment
+## Game Environment
   -	Units are spawned from the restaurant
   -	The field will be a mirror of itself
 
-##Buildings
+## Buildings
 Randomly thrown about the map are bases, with a small radius around them. When one of your units stands within the circle, they capture the real estate, generating a passive income for the team. There will be a base in the very middle of the map, to help stop turtling. There will also be bases on the very edges, being the restaurant, otherwise known as the mafia headquarters, losing the game on capture.
 
 Two types of buildings, those that give MONEY when captured, and those that give INFLUENCE. With money you can purchase units, and then with INFLUENCE you can deposit that into the TOWN HALL. If you and your opponent are both alive at the end, whoever has the most influence in TOWN HALL wins. (If you get to a certain threshold, you elect your own politician and win.)
 
-###Bank
+### Bank
   -	Gain possession by standing within boundary for 5 turns uncontested
   -	Once captured gains passive income of 10 dollars per turn
   -	Diameter 2 tiles  
-###Neighborhood?
+### Neighborhood?
   -	Gain possession by standing within boundary for 5 turns uncontested
   -	Once captured gains passive income of 10 influence per turn
   -	Influence gained is immediately deposited into your base, but must be transferred to the town hall to be used
   -	Diameter 2 tiles
+### Police Station
+  - tbd
+### Restaurant / Headquarters
+  - tbd
+### Town Hall
+  - tbd
+
 
 ##Other Information:
 cool nice good ok filler text
