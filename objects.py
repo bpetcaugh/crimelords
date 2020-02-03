@@ -38,7 +38,6 @@ class Unit(GameObject):
     def __init__(self, t, loc, color, i):
         super(Unit, self).__init__(t, loc, color, i)
 
-<<<<<<< HEAD
 class Demo(Unit):
     def __init__(self, t, loc, color, i):
         self.hp=300
@@ -114,7 +113,6 @@ class Base(Unit):
         self.build_max = 1
         self.alive = True
         super(Base, self).__init__(t, loc, color, i)
-=======
 class Base(Unit):
     def __init__(self, hp, move_max, melee_dmg, melee_rng, cost, drop, alive_state):
         self.hp = 100
@@ -126,4 +124,3 @@ class Base(Unit):
         self.color = ""
         self.alive_state= True
         super(Base, self).__init__( hp, move_max, melee_dmg, melee_rng, cost, drop, alive_state)
->>>>>>> master
