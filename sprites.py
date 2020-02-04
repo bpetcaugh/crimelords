@@ -8,3 +8,9 @@ def load_sprites():
 			img = pygame.image.load(os.path.join("sprites", filename))
 			s[filename.split(".png")[0]] = pygame.transform.scale(img, (16, 16))
 	return s
+
+def sprite_for(text):
+	# define tiles here
+	return {
+		"--": "grass"
+	}[text]
