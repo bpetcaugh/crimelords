@@ -2,7 +2,7 @@ import pygame
 import sys
 
 from map import Map
-from sprites import load_sprites, sprite_for
+from sprites import sprite_for
 
 tile_size = 16
 screen = pygame.display.set_mode([640, 640]) # 640x640 is the window size. we can adjust as necessary
@@ -11,8 +11,6 @@ clock = pygame.time.Clock()
 
 # pick map here for now we can incorporate this later
 game_map = Map("./maps/onepolicestation.txt")
-
-sprites = load_sprites()
 
 going = True
 # GAME LOOP
@@ -25,7 +23,10 @@ while going:
 	for row, row_ in enumerate(game_map.map):
 		for col, cell in enumerate(row_):
 			pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
-			screen.blit(sprite_for(cell), (tile_size*col, tile_size*row))
+			screen.blit(sprite_for("--"), (tile_size*col, tile_size*row))
+			if cell != "--":
+				pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
+				screen.blit(sprite_for(cell), (tile_size*col, tile_size*row))
 
 	clock.tick(5)
 	pygame.display.flip()
