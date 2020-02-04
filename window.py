@@ -25,8 +25,8 @@ while going:
 	for row, row_ in enumerate(game_map.map):
 		for col, cell in enumerate(row_):
 			if cell == "--":
-				pygame.draw.rect(screen, (0, 0, 0), [16*col, 16*row, 16, 16])
-				screen.blit(sprites["grass"], (16*col, 16*row))
+				pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
+				screen.blit(sprites["grass"], (tile_size*col, tile_size*row))
 
 	clock.tick(5)
 	pygame.display.flip()
