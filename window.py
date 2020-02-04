@@ -1,4 +1,5 @@
 import pygame
+import sys
 
 from map import Map
 from sprites import load_sprites
@@ -9,7 +10,7 @@ pygame.display.set_caption("CRIMELORDS")
 clock = pygame.time.Clock()
 
 # pick map here for now we can incorporate this later
-map = Map("./maps/emptymap.txt")
+game_map = Map("./maps/emptymap.txt")
 
 sprites = load_sprites()
 
@@ -17,18 +18,18 @@ going = True
 # GAME LOOP
 while going:
 	for event in pygame.event.get():
-		if event == pygame.QUIT:
-			going = False
+		if event.type == pygame.QUIT:
+			sys.exit()
 
 	screen.fill((0, 0, 0))
-	for row, row_ in enumerate(map):
-		for col, cell in row_:
+	for row, row_ in enumerate(game_map.map):
+		for col, cell in enumerate(row_):
 			if cell == "--":
 				pygame.draw.rect(screen, (0, 0, 0), [16*col, 16*row, 16, 16])
-				screen.blit(sprites["grass"], (col, row))
+				screen.blit(sprites["grass"], (16*col, 16*row))
 
 	clock.tick(5)
 	pygame.display.flip()
-	break
 
+pygame.quit()
 # title screen can go here i am just going to get straight into the game
