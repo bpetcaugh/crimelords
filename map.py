@@ -3,23 +3,24 @@ import os
 class Map: # always 40x40 i am not going to have size changeable this is too difficult
 	def __init__(self, src_file):
 		self.map = [["--" for col in range(40)] for row in range(40)] # empty map in case of errors
-		with open(src_file, "w+") as f:
+		with open(src_file) as f:
 			fc = f.read()
-			if len(fc.split(os.linesep)) > 40:
+			if len(fc.split(os.linesep)) != 40:
 				print("the map in the file '{}' is not 40x40 (too many rows)".format(src_file))
 			elif len(fc.split(os.linesep)) < 40:
 				print("the map in the file '{}' is not 40x40 (too few rows)".format(src_file))
 			else:
-				for n, row in enumerate(fc.split(os.linesep)):
+				for n, unsplit_row in enumerate(fc.split(os.linesep)):
+					row = unsplit_row.rstrip().split(" ")
 					if len(row) > 40:
-						print("the map written in the file '{}' is not 40x40 (row {} is too 	long)".format(src_file, n))
+						print("the map written in the file '{}' is not 40x40 (row {} is too long)".format(src_file, n))
 					elif len(row) < 40:
 						print("the map written in the file '{}' is not 40x40 (row {} is too short)".format(src_file, n))
 					if len(row) != 40:
 						return
 
 				for row_idx, row in enumerate(fc.split(os.linesep)): # \n bad need os-specific line ending
-					for col, tile in enumerate(row.split(" ")):
+					for col, tile in enumerate(row.rstrip().split(" ")):
 						self.map[row_idx][col] = tile
 
 	def draw(self, obj, x, y): # (0, 0) is the top left corner. sorry
