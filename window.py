@@ -10,7 +10,7 @@ pygame.display.set_caption("CRIMELORDS")
 clock = pygame.time.Clock()
 
 # pick map here for now we can incorporate this later
-game_map = Map("./maps/emptymap.txt")
+game_map = Map("./maps/onepolicestation.txt")
 
 sprites = load_sprites()
 
