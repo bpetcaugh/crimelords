@@ -12,5 +12,6 @@ def load_sprites():
 def sprite_for(text):
 	# define tiles here
 	return {
-		"--": "grass"
+		"--": "grass",
+		"PO": "policestation"
 	}[text]
