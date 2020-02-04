@@ -25,10 +25,9 @@ while going:
 			pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
 			screen.blit(sprite_for("--"), (tile_size*col, tile_size*row))
 			if cell != "--":
-				pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
 				screen.blit(sprite_for(cell), (tile_size*col, tile_size*row))
 
-	clock.tick(5)
+	clock.tick(15)
 	pygame.display.flip()
 
 pygame.quit()
