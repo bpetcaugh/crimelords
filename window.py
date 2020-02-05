@@ -9,6 +9,11 @@ screen = pygame.display.set_mode([720, 720]) # 640x640 is the window size. we ca
 pygame.display.set_caption("CRIMELORDS")
 clock = pygame.time.Clock()
 
+grid = True
+
+if grid:
+	tile_size += 1
+
 # pick map here for now we can incorporate this later
 game_map = Map("./maps/onepolicestation.txt")
 
@@ -31,4 +36,3 @@ while going:
 	pygame.display.flip()
 
 pygame.quit()
-# title screen can go here i am just going to get straight into the game
