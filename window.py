@@ -4,8 +4,8 @@ import sys
 from map import Map
 from sprites import sprite_for
 
-tile_size = 16
-screen = pygame.display.set_mode([640, 640]) # 640x640 is the window size. we can adjust as necessary
+tile_size = 18
+screen = pygame.display.set_mode([720, 720]) # 640x640 is the window size. we can adjust as necessary
 pygame.display.set_caption("CRIMELORDS")
 clock = pygame.time.Clock()
 
