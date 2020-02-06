@@ -14,7 +14,9 @@ def sprite_for(text):
 	return load_sprites()[{
 		"--": "grass",
 		"P1": "policestationtopleft",
-		"P2": "policestationtopright",
-		"P3": "policestationbottomleft",
-		"P4": "policestationbottomright"
+		"P2": "policestationtopmiddle",
+		"P3": "policestationtopright",
+		"P4": "policestationbottomleft",
+		"P5": "policestationbottommiddle",
+		"P6": "policestationbottomright"
 	}[text]]

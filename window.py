@@ -9,7 +9,7 @@ screen = pygame.display.set_mode([720, 720]) # 640x640 is the window size. we ca
 pygame.display.set_caption("CRIMELORDS")
 clock = pygame.time.Clock()
 
-grid = True
+grid = False
 
 if grid:
 	tile_size += 1
