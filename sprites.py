@@ -6,12 +6,17 @@ def load_sprites():
 	for filename in os.listdir("sprites"):
 		if filename.endswith(".png"):
 			img = pygame.image.load(os.path.join("sprites", filename))
-			s[filename.split(".png")[0]] = pygame.transform.scale(img, (16, 16))
+			s[filename.split(".png")[0]] = pygame.transform.scale(img, (18, 18))
 	return s
 
 def sprite_for(text):
 	# define tiles here
 	return load_sprites()[{
 		"--": "grass",
-		"PO": "policestation"
+		"P1": "policestationtopleft",
+		"P2": "policestationtopmiddle",
+		"P3": "policestationtopright",
+		"P4": "policestationbottomleft",
+		"P5": "policestationbottommiddle",
+		"P6": "policestationbottomright"
 	}[text]]
