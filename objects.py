@@ -88,32 +88,29 @@ class Demo(Unit):
                 self.move(list[0]['move'], objects)
             elif 'strike' in list[0]:
                 self.strike(list[0]['strike'], objects)
-'''
-#Depending on if demo is suicide bomber or not.
-class Charge(Unit):
-    def __init__(self, t, loc, color, i):
-        self.turns=3
-        super(Unit, self).__init__(t, loc, color, i)
-    
-    def countdown(self):
-        if self.turns>=0:
-            self.turns-=1
-        if self.turns==0:
-            Detonate(self)
 
-    def Detonate(self, t, loc, color, i):
-        self.radius=3
-'''
 class Base(Unit):
     def __init__(self, t, loc, color, i):
-        self.hp = 200
+        self.hp = 2
         self.ap = 0
         self.mp = 0
         self.move_max = 0
         self.build_max = 1
         self.alive = True
+        self.destructable = False
         super(Base, self).__init__(t, loc, color, i)
-class Base(Unit):
+
+class restaurant(Unit):
+    def __init__(self, t, loc, color, i):
+        self.hp = 2
+        self.ap = 0
+        self.mp = 0
+        self.move_max = 0
+        self.alive = True
+        self.destructable = True
+        super(Base, self).__init__(t, loc, color, i)
+
+'''class Base(Unit):
     def __init__(self, hp, move_max, melee_dmg, melee_rng, cost, drop, alive_state):
         self.hp = 100
         self.move_max = 5
@@ -124,3 +121,4 @@ class Base(Unit):
         self.color = ""
         self.alive_state= True
         super(Base, self).__init__( hp, move_max, melee_dmg, melee_rng, cost, drop, alive_state)
+'''
