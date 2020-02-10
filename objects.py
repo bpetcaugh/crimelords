@@ -38,14 +38,47 @@ class Unit(GameObject):
     def __init__(self, t, loc, color, i):
         super(Unit, self).__init__(t, loc, color, i)
 
+class Mafioso(Unit):
+    def __init__(self, t, loc, color, i):
+        self.hp=100
+        self.move_max=5
+        self.ap=25
+        self.alive=True
+        super(Mafioso, self).__init__(t, loc, color, i)
+
+    def strike(self, loc, objects):
+        #Checks for valid location
+        validLoc = False
+        if (0 <= loc[0] < 20) and (0 <= loc[1] < 20):
+            if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
+                if (abs(loc[0] - self.location[0]) <= self.attack_max) and (abs(loc[1] - self.location[1]) <= self.attack_max):
+                    validLoc = True
+
+        #Checks if object can be attacked
+        canStrike = False
+        if validLoc:
+            for o in objects:
+                if o.get_location() == loc:
+                    if o.get_type() in ["Demo", "Mafioso", "Assassin"]:
+                        o.modify_hp(-self.ap)
+                        canStrike = True
+        return canStrike
+
+    def take_action(self, list, objects, color, player):
+        if self.alive:
+            if 'move' in list[0]:
+                self.move(list[0]['move'], objects)
+            elif 'strike' in list[0]:
+                self.strike(list[0]['strike'], objects)
+
 class Demo(Unit):
     def __init__(self, t, loc, color, i):
-        self.hp=300
+        self.hp=750
         self.charge=1
-        self.move_max=2
+        self.move_max=3
         self.ap=0
         self.alive=True
-        super(Soldier, self).__init__(t, loc, color, i)
+        super(Demo, self).__init__(t, loc, color, i)
 
     def move(self, loc, objects):
     #Checks if various conditions are met
@@ -63,10 +96,26 @@ class Demo(Unit):
                         return True
         return False
 
+    def take_action(self, list, objects, color, player):
+        if self.alive:
+            if 'move' in list[0]:
+                self.move(list[0]['move'], objects)
+            elif 'strike' in list[0]:
+                self.strike(list[0]['strike'], objects)
+
+class Assassin(Unit):
+    def __init__(self, t, loc, color, i):
+        self.hp=50
+        self.move_max=10
+        self.ap=50
+        self.attack_max=5
+        self.alive=True
+        super(Assassin, self).__init__(t, loc, color, i)
+
     def strike(self, loc, objects):
-    #Checks for valid location
+        #Checks for valid location
         validLoc = False
-        if (0 <= loc[0] < 20) and (0 <= loc[1] < 20):
+        if (0 <= loc[0] < self.attack_max) and (0 <= loc[1] < self.attack_max):
             if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
                 if (abs(loc[0] - self.location[0]) <= self.attack_max) and (abs(loc[1] - self.location[1]) <= self.attack_max):
                     validLoc = True
@@ -76,10 +125,9 @@ class Demo(Unit):
         if validLoc:
             for o in objects:
                 if o.get_location() == loc:
-                    if o.get_type() in ["Demo"]:
+                    if o.get_type() in ["Demo", "Mafioso", "Assassin"]:
                         o.modify_hp(-self.ap)
                         canStrike = True
-
         return canStrike
 
     def take_action(self, list, objects, color, player):
@@ -88,6 +136,7 @@ class Demo(Unit):
                 self.move(list[0]['move'], objects)
             elif 'strike' in list[0]:
                 self.strike(list[0]['strike'], objects)
+
 
 class Base(Unit):
     def __init__(self, t, loc, color, i):
