@@ -34,5 +34,6 @@ while going:
 
 	clock.tick(15)
 	pygame.display.flip()
+	
 
 pygame.quit()
