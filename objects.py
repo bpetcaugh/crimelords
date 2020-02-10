@@ -1,6 +1,27 @@
-import pygame
 import math
 import random
+
+class Player():
+    def __init__(self, r, color, name):
+        self.resources = r
+        self.game_color = color
+        self.team_name = name
+
+    def player_turn(self, game_stats):
+        #In PROGRESS
+        pass
+
+    def get_resources(self):
+        return self.resources
+
+    def get_color(self):
+        return self.game_color
+
+    def get_name(self):
+        return self.team_name
+
+    def mod_resources(self, amount):
+        self.resources += amount
 
 class GameObject():
     #Type:Base, Building,
@@ -146,10 +167,63 @@ class Base(Unit):
         self.move_max = 0
         self.build_max = 1
         self.alive = True
-        self.destructable = False
+        self.destructable = True
         super(Base, self).__init__(t, loc, color, i)
 
-class restaurant(Unit):
+    def build(self, type, color, loc, objects, player):
+        canBuild = True
+        for o in objects:
+            if o.get_location() == loc:
+                canBuild = False
+
+        if type == "Mafioso" and player.get_resources() < 10:
+            canBuild = False
+        if type == "Demo" and player.get_resources() < 500:
+            canBuild = False
+        if type == "Assassin" and player.get_resources() < 20:
+            canBuild = False
+
+        if canBuild:
+            if (0 <= int(loc[0]) < 20) and (0 <= int(loc[1]) < 20):
+                if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
+                    if (abs(loc[0] - self.location[0]) <= self.build_max) and (abs(loc[1] - self.location[1]) <= self.build_max):
+                        if type == "Mafioso" and color == "B":
+                            objects.append(Mafioso("Mafioso",loc,color,"BM"))
+                            player.mod_resources(-10)
+                        elif type == "Mafioso" and color == "R":
+                            objects.append(Mafioso("Mafioso",loc,color,"RM"))
+                            player.mod_resources(-10)
+                        elif type == "Demo" and color == "B":
+                            objects.append(Demo("Demo",loc,color,"BD"))
+                            player.mod_resources(-500)
+                        elif type == "Demo" and color == "R":
+                            objects.append(Demo("Demo",loc,color,"RD"))
+                            player.mod_resources(-500)
+                        elif type == "Assassin" and color == "B":
+                            objects.append(Assassin("Assassin",loc,color,"BA"))
+                            player.mod_resources(-20)
+                        elif type == "Assassin" and color == "R":
+                            objects.append(Assassin("Assassin",loc,color,"RA"))
+                            player.mod_resources(-20)
+
+                        return objects
+
+    def take_action(self, list, objects, color, player):
+        if self.alive:
+            if 'build' in list[0]:
+                self.build(list[0]['build'][0], color ,list[0]['build'][1] ,objects, player)
+
+class Bank(Unit):
+    def __init__(self, t, loc, color, i):
+        self.hp = 2
+        self.ap = 0
+        self.mp = 0
+        self.move_max = 0
+        self.alive = True
+        self.destructable = False
+        super(Bank, self).__init__(t, loc, color, i)
+
+class Neighborhood(Unit):
     def __init__(self, t, loc, color, i):
         self.hp = 2
         self.ap = 0
@@ -157,17 +231,4 @@ class restaurant(Unit):
         self.move_max = 0
         self.alive = True
         self.destructable = True
-        super(Base, self).__init__(t, loc, color, i)
-
-'''class Base(Unit):
-    def __init__(self, hp, move_max, melee_dmg, melee_rng, cost, drop, alive_state):
-        self.hp = 100
-        self.move_max = 5
-        self.melee_dmg = 25
-        self.melee_rng = 1
-        self.cost = 10 
-        self.drop = 5 
-        self.color = ""
-        self.alive_state= True
-        super(Base, self).__init__( hp, move_max, melee_dmg, melee_rng, cost, drop, alive_state)
-'''
+        super(Neighborhood, self).__init__(t, loc, color, i)
