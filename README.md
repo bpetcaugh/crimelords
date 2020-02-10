@@ -58,10 +58,6 @@ Two types of buildings, those that give MONEY when captured, and those that give
   -	1 block radius around the building that units must stand in to control the area
   - Not destructible
 
-### Neighborhood?
-  -	Gain possession by standing within boundary for 5 turns uncontested
-  -	Once captured gains passive income of 10 influence per turn
-  -	Influence gained is immediately deposited into your base, but must be transferred to the town hall to be used
 ### Police Station
   -	Gain possession by standing within boundary for 5 turns uncontested 
   -	Once captured gains passive income of 10 influence per turn 
