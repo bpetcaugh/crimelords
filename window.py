@@ -2,6 +2,7 @@ import pygame
 import sys
 
 from map import Map
+from rounds import do_round_red, do_round_blue
 from sprites import sprite_for
 
 tile_size = 18
@@ -31,6 +32,9 @@ while going:
 			screen.blit(sprite_for("--"), (tile_size*col, tile_size*row))
 			if cell != "--":
 				screen.blit(sprite_for(cell), (tile_size*col, tile_size*row))
+
+	game_map = do_round_red(game_map)
+	game_map = do_round_blue(game_map)
 
 	clock.tick(15)
 	pygame.display.flip()

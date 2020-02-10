@@ -18,5 +18,9 @@ def sprite_for(text):
 		"P3": "policestationtopright",
 		"P4": "policestationbottomleft",
 		"P5": "policestationbottommiddle",
-		"P6": "policestationbottomright"
+		"P6": "policestationbottomright",
+		"MB": "mafiosoblue",
+		"MR": "mafiosored",
+		"HB": "hitmanblue",
+		"HR": "hitmanred"
 	}[text]]
