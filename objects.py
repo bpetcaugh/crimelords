@@ -70,7 +70,7 @@ class Mafioso(Unit):
     def strike(self, loc, objects):
         #Checks for valid location
         validLoc = False
-        if (0 <= loc[0] < 20) and (0 <= loc[1] < 20):
+        if (0 <= loc[0] < 40) and (0 <= loc[1] < 40):
             if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
                 if (abs(loc[0] - self.location[0]) <= self.attack_max) and (abs(loc[1] - self.location[1]) <= self.attack_max):
                     validLoc = True
@@ -110,7 +110,7 @@ class Demo(Unit):
                 canMove = False
 
         if canMove:
-            if (0 <= loc[0] < 20) and (0 <= loc[1] < 20):
+            if (0 <= loc[0] < 40) and (0 <= loc[1] < 40):
                 if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
                     if (abs(loc[0] - self.location[0]) <= self.move_max) and (abs(loc[1] - self.location[1]) <= self.move_max):
                         self.location = loc
@@ -136,7 +136,7 @@ class Assassin(Unit):
     def strike(self, loc, objects):
         #Checks for valid location
         validLoc = False
-        if (0 <= loc[0] < self.attack_max) and (0 <= loc[1] < self.attack_max):
+        if (0 <= loc[0] < 40) and (0 <= loc[1] < 40):
             if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
                 if (abs(loc[0] - self.location[0]) <= self.attack_max) and (abs(loc[1] - self.location[1]) <= self.attack_max):
                     validLoc = True
@@ -184,7 +184,7 @@ class Base(Unit):
             canBuild = False
 
         if canBuild:
-            if (0 <= int(loc[0]) < 20) and (0 <= int(loc[1]) < 20):
+            if (0 <= int(loc[0]) < 40) and (0 <= int(loc[1]) < 40):
                 if (int(loc[0]) == loc[0]) and (int(loc[1]) == loc[1]):
                     if (abs(loc[0] - self.location[0]) <= self.build_max) and (abs(loc[1] - self.location[1]) <= self.build_max):
                         if type == "Mafioso" and color == "B":
