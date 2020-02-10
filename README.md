@@ -55,18 +55,33 @@ Two types of buildings, those that give MONEY when captured, and those that give
 ### Bank
   -	Gain possession by standing within boundary for 5 turns uncontested
   -	Once captured gains passive income of 10 dollars per turn
-  -	Diameter 2 tiles  
+  -	1 block radius around the building that units must stand in to control the area
+  - Not destructible
+
 ### Neighborhood?
   -	Gain possession by standing within boundary for 5 turns uncontested
   -	Once captured gains passive income of 10 influence per turn
   -	Influence gained is immediately deposited into your base, but must be transferred to the town hall to be used
-  -	Diameter 2 tiles
 ### Police Station
-  - tbd
+  -	Gain possession by standing within boundary for 5 turns uncontested 
+  -	Once captured gains passive income of 10 influence per turn 
+  -	Influence gained is immediately deposited into your base, but must be transferred to the town hall to be used
+  -	1 block radius around the building that units must stand in to control the area
+  -	Not destructible
+
 ### Restaurant / Headquarters
-  - tbd
+  - Produces units 
+  -	Main “Base”
+  -	Only 2, each team has 1 
+  -	Destructible- requires 2 demolition charges 
+
 ### Town Hall
-  - tbd
+  - Used to buy politicians
+  - 5,000 influence to buy a politician
+  - 1 block radius around the building that units must stand in to deposit influence 
+  -	A unit can deposit all of their influence in one turn
+  -	Not destructible 
+
 
 
 ##Other Information:
