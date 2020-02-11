@@ -17,7 +17,7 @@ Gain control over the city of Cheyenne by one of 2 ways
   - Loyalty
     - obtained by:
       - Controlling police stations 
-    -Used for:
+    - Used for:
       -   Electing your own politician 
 
 ## Units
