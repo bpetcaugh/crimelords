@@ -11,7 +11,7 @@ Gain control over the city of Cheyenne by one of 2 ways
     - obtained by:
       - Controlling banks
       - killing opposing mafia units
-    -Used for:
+    - Used for:
       -	coercing new members into joining
       -	Upgrade HQ to get new unit abilities (or make new units available to buy
   - Loyalty
