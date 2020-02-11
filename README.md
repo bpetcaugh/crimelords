@@ -51,8 +51,8 @@ Note: A unit cannot move and attack in the same turn
 ## Game Environment
   -	Units are spawned from the restaurant
   -	The field will be a mirror of itself
-  -40 x 40 map filled with preset buildings 
-  -Units can manuever freely around the map 
+  - 40 x 40 map filled with preset buildings 
+  - Units can manuever freely around the map 
 ## Buildings
 Randomly thrown about the map are bases, with a small radius around them. When one of your units stands within the circle, they capture the real estate, generating a passive income for the team. There will be a base in the very middle of the map, to help stop turtling. There will also be bases on the very edges, being the restaurant, otherwise known as the mafia headquarters, losing the game on capture.
 
