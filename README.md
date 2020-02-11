@@ -19,6 +19,7 @@ Gain control over the city of Cheyenne by one of 2 ways
 Note: A unit cannot move and attack in the same turn
 ## Map 
 40 x 40 map filled with preset buildings 
+Units can manuever freely around the map 
 ### Mafioso - basic melee unit
   -	5 tile move range per turn
   -	100 Health
