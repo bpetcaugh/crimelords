@@ -80,7 +80,7 @@ class Mafioso(Unit):
         if validLoc:
             for o in objects:
                 if o.get_location() == loc:
-                    if o.get_type() in ["Demo", "Mafioso", "Assassin"]:
+                    if o.get_type() in ["Demo", "Mafioso", "Hitman"]:
                         o.modify_hp(-self.ap)
                         canStrike = True
         return canStrike
@@ -124,14 +124,14 @@ class Demo(Unit):
             elif 'strike' in list[0]:
                 self.strike(list[0]['strike'], objects)
 
-class Assassin(Unit):
+class Hitman(Unit):
     def __init__(self, t, loc, color, i):
         self.hp=50
         self.move_max=10
         self.ap=50
         self.attack_max=5
         self.alive=True
-        super(Assassin, self).__init__(t, loc, color, i)
+        super(Hitman, self).__init__(t, loc, color, i)
 
     def strike(self, loc, objects):
         #Checks for valid location
@@ -146,7 +146,7 @@ class Assassin(Unit):
         if validLoc:
             for o in objects:
                 if o.get_location() == loc:
-                    if o.get_type() in ["Demo", "Mafioso", "Assassin"]:
+                    if o.get_type() in ["Demo", "Mafioso", "Hitman"]:
                         o.modify_hp(-self.ap)
                         canStrike = True
         return canStrike
@@ -180,7 +180,7 @@ class Base(Unit):
             canBuild = False
         if type == "Demo" and player.get_resources() < 500:
             canBuild = False
-        if type == "Assassin" and player.get_resources() < 20:
+        if type == "Hitman" and player.get_resources() < 20:
             canBuild = False
 
         if canBuild:
@@ -199,11 +199,11 @@ class Base(Unit):
                         elif type == "Demo" and color == "R":
                             objects.append(Demo("Demo",loc,color,"RD"))
                             player.mod_resources(-500)
-                        elif type == "Assassin" and color == "B":
-                            objects.append(Assassin("Assassin",loc,color,"BA"))
+                        elif type == "Hitman" and color == "B":
+                            objects.append(Hitman("Hitman",loc,color,"BH"))
                             player.mod_resources(-20)
-                        elif type == "Assassin" and color == "R":
-                            objects.append(Assassin("Assassin",loc,color,"RA"))
+                        elif type == "Hitman" and color == "R":
+                            objects.append(Hitman("Hitman",loc,color,"RH"))
                             player.mod_resources(-20)
 
                         return objects

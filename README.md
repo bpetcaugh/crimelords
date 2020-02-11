@@ -27,11 +27,11 @@ Units can manuever freely around the map
   -	Cost: 10 dollars
   -	Drop: 5 dollars
 
-### Assassin - ranged unit
+### Hitman - ranged unit
   -	10 tile move range per turn
   -	50 health
   -	50 ranged damage-within 5 tiles
-  -	assassins cannot acquire real estate
+  -	hitmen cannot acquire real estate
   -	Cost: 20 dollars
   -	Drop: 10 dollars
 
