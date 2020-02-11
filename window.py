@@ -16,6 +16,8 @@ def main(teams, game_map=Map("./maps/onepolicestation.txt"), grid=False):
 	going = True
 	# GAME LOOP
 	while going:
+		mixer.music.load('pizzatron.mp3')
+		mixer.music.play(-1)
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
