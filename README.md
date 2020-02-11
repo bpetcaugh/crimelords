@@ -1,5 +1,5 @@
 # CRIME LORDS
-The city of Cheyenne Wyoming is ruled by 2 warring gangs, red gang and blue gang. But the #RedGang’s leader’s beloved son Tony has been assassinated by a hitman from #BlueGang. Now, the world of crime is in political turmoil. The city of Cheyenne, Wyoming is in all-out war. The only way the two teams can control the city is to elect their own mayor. Otherwise, they must completely annihilate the other gang’s home base, a classic Italian restaurant. Welcome to the world of **CRIME LORDS**.
+The city of Cheyenne Wyoming is ruled by 2 warring gangs, red gang and blue gang. But the #RedGang’s leader’s beloved son Tony has been assassinated by a hitman from #BlueGang. Now, the world of crime is in political turmoil. The city of Beyl-Ganeet, Wyoming is in all-out war. The only way the two teams can control the city is to elect their own mayor. Otherwise, they must completely annihilate the other gang’s home base, a classic Italian restaurant. Welcome to the world of **CRIME LORDS**.
 
 ## Game Objective
 Gain control over the city of Cheyenne by one of 2 ways
@@ -17,7 +17,9 @@ Gain control over the city of Cheyenne by one of 2 ways
 
 ## Units
 Note: A unit cannot move and attack in the same turn
-
+## Map 
+40 x 40 map filled with preset buildings 
+Units can manuever freely around the map 
 ### Mafioso - basic melee unit
   -	5 tile move range per turn
   -	100 Health
