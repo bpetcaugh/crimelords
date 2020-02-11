@@ -8,12 +8,12 @@ Gain control over the city of Cheyenne by one of 2 ways
 
 ## Game Currency
   - US Dollars
-  -	obtained by:
-    - holding real estate
-    - killing opposing mafia units
-  -	used for:
-    -	coercing new members into joining
-    -	Upgrade HQ to get new unit abilities (or make new units available to buy)
+    -	obtained by:
+      - holding real estate
+      - killing opposing mafia units
+    -	used for:
+      -	coercing new members into joining
+      -	Upgrade HQ to get new unit abilities (or make new units available to buy)
 
 ## Units
 Note: A unit cannot move and attack in the same turn
