@@ -87,5 +87,7 @@ Two types of buildings, those that give MONEY when captured, and those that give
 
 
 ##Other Information:
-cool nice good ok filler text
+trello board link: 
+https://trello.com/b/vz0KkHUG/agile-sprint-board
 
+runner is  main.py
