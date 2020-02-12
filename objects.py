@@ -1,17 +1,14 @@
 import math
 import random
-<<<<<<< HEAD
 '''To Do:
 -Engineer Explosion Function
 -Create function that gives influence/money
 -Create capture function/action
 '''
-=======
 
 def distance(p1, p2):
 	return math.sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2))
 
->>>>>>> master
 class Player():
 	def __init__(self, r, color, name):
 		self.resources = r
@@ -71,7 +68,6 @@ class Unit(GameObject):
 				self.location[i] = 0
 
 class Mafioso(Unit):
-<<<<<<< HEAD
     def __init__(self, t, loc, color, i):
         self.hp=100
         self.move_max=5
@@ -244,7 +240,6 @@ class Neighborhood(Unit):
         self.alive = True
         self.destructable = True
         super(Neighborhood, self).__init__(t, loc, color, i)
-=======
 	def __init__(self, loc, color):
 		self.hp = 100
 		self.ap = 25
@@ -368,4 +363,3 @@ class Neighborhood(GameObject):
 		self.alive = True
 		self.destructable = True
 		super(Neighborhood, self).__init__("Neighborhood", loc, color, "NE")
->>>>>>> master
