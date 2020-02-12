@@ -6,6 +6,8 @@ from map import Map
 from sprites import load_sprites, sprite_codes
 from objects import *
 
+framerate = 5
+
 def get_objects(map):
 	objects = []
 	for row, row_ in enumerate(map.map):
@@ -25,8 +27,8 @@ def get_objects(map):
 def render_map(old_map, objects):
 	nmap = Map(old_map.src, array=[["--" for cols in range(40)] for rows in range(40)], background=old_map.bg)
 	for object in objects:
-		nmap[object.location[1]][object.location[0]] = object.icon
-	return objects
+		nmap.map[object.location[1]][object.location[0]] = object.icon
+	return nmap
 
 def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	tile_size = 18
@@ -44,8 +46,6 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	print("loaded!")
 
 	while going:
-		mixer.music.load('pizzatron.mp3')
-		mixer.music.play(-1)
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
@@ -64,18 +64,18 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 		obj_copy = copy.copy(objects)
 		objects = []
 		for obj in obj_copy:
-			objects += [teams[0](p1, obj, game_map)]
+			objects += [teams[0](p1, obj, obj_copy)]
 
 		game_map = render_map(game_map, objects)
-		clock.tick(15)
+		clock.tick(framerate)
 		pygame.display.flip()
 
 		obj_copy = copy.copy(objects)
 		for obj in obj_copy:
-			objects += [teams[0](p1, obj, game_map)]
+			objects += [teams[1](p1, obj, obj_copy)]
 
 		game_map = render_map(game_map, objects)
-		clock.tick(15)
+		clock.tick(framerate)
 		pygame.display.flip()
 
 	pygame.quit()
