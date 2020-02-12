@@ -9,18 +9,18 @@ def load_sprites():
 			s[filename.split(".png")[0]] = pygame.transform.scale(img, (18, 18))
 	return s
 
-def sprite_for(text):
-	# define tiles here
-	return load_sprites()[{
-		"--": "grass",
-		"P1": "policestationtopleft",
-		"P2": "policestationtopmiddle",
-		"P3": "policestationtopright",
-		"P4": "policestationbottomleft",
-		"P5": "policestationbottommiddle",
-		"P6": "policestationbottomright",
-		"MB": "mafiosoblue",
-		"MR": "mafiosored",
-		"HB": "hitmanblue",
-		"HR": "hitmanred"
-	}[text]]
+sprite_codes = {
+	"--": "grass",
+	"P1": "policestationtopleft",
+	"P2": "policestationtopmiddle",
+	"P3": "policestationtopright",
+	"P4": "policestationbottomleft",
+	"P5": "policestationbottommiddle",
+	"P6": "policestationbottomright",
+	"MB": "mafiosoblue",
+	"MR": "mafiosored",
+	"HB": "hitmanblue",
+	"HR": "hitmanred",
+	"BB": "restaurantblue",
+	"BR": "restaurantred"
+}
