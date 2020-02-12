@@ -1,6 +1,10 @@
 import math
 import random
-
+'''To Do:
+-Engineer Explosion Function
+-Create function that gives influence/money
+-Create capture function/action
+'''
 class Player():
     def __init__(self, r, color, name):
         self.resources = r
