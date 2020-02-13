@@ -1,5 +1,5 @@
 # CRIME LORDS
-The city of Cheyenne Wyoming is ruled by 2 warring gangs, red gang and blue gang. But the #RedGang’s leader’s beloved son Tony has been assassinated by a hitman from #BlueGang. Now, the world of crime is in political turmoil. The city of Beyl-Ganeet, Wyoming is in all-out war. The only way the two teams can control the city is to elect their own mayor. Otherwise, they must completely annihilate the other gang’s home base, a classic Italian restaurant. Welcome to the world of **CRIME LORDS**.
+The city of Cheyenne Wyoming is ruled by 2 warring gangs, red gang and blue gang. But the #RedGang’s leader’s beloved son Tony has been assassinated by a hitman from #BlueGang. Now, the world of crime is in political turmoil. The city of Cheyenne, Wyoming is in all-out war. The only way the two teams can control the city is to elect their own mayor. Otherwise, they must completely annihilate the other gang’s home base, a classic Italian restaurant. Welcome to the world of **CRIME LORDS**.
 
 ## Game Objective
 Gain control over the city of Cheyenne by one of 2 ways
@@ -87,5 +87,7 @@ Two types of buildings, those that give MONEY when captured, and those that give
 
 
 ##Other Information:
-cool nice good ok filler text
+trello board link: 
+https://trello.com/b/vz0KkHUG/agile-sprint-board
 
+runner is  main.py
