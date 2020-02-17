@@ -239,7 +239,7 @@ class Neighborhood(Unit):
 		self.move_max = 0
 		self.alive = True
 		self.destructable = True
-	    super(Neighborhood, self).__init__(t, loc, color, i)
+		super(Neighborhood, self).__init__(t, loc, color, i)
 	def __init__(self, loc, color):
 		self.hp = 100
 		self.ap = 25
