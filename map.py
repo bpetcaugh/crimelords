@@ -54,11 +54,3 @@ class Map: # always 40x40 i am not going to have size changeable this is too dif
 				out += "{} ".format(tile)
 			out += "\n"
 		return out
-
-# test lines. uncomment and run to view results
-# test = Map("./maps/emptymap.txt")
-# print(test)
-# test.draw("HI", 0, 0)
-# print(test)
-# test.move(0, 0, 5, 5)
-# print(test)

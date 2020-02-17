@@ -14,14 +14,22 @@ def get_objects(map):
 		for col, cell in enumerate(row_):
 			if cell == "--":
 				continue
-			elif cell == "RR":
-				objects += [Base([col, row], "R")]
-			elif cell == "RB":
-				objects += [Base([col, row], "B")]
-			elif cell == "MB":
-				objects += [Mafioso([col, row], "B")]
-			elif cell == "MR":
-				objects += [Mafioso([col, row], "R")]
+			else:
+				try:
+					objects += [{
+						"RR": Base([col, row], "R"),
+						"RB": Base([col, row], "B"),
+						"MR": Mafioso([col, row], "R"),
+						"MB": Mafioso([col, row], "B"),
+						"P1": Ext("Police", [col, row], "N", "P1"),
+						"P2": PoliceStation([col, row]),
+						"P3": Ext("Police", [col, row], "N", "P3"),
+						"P4": Ext("Police", [col, row], "N", "P4"),
+						"P5": Ext("Police", [col, row], "N", "P5"),
+						"P6": Ext("Police", [col, row], "N", "P6")
+					}[cell]]
+				except KeyError:
+					pass
 	return objects
 
 def render_map(old_map, objects):
@@ -56,8 +64,6 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 				pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
 				screen.blit(sprites[sprite_codes["--"]], (tile_size*col, tile_size*row))
 				if cell != "--":
-					print(cell)
-					print(sprite_codes)
 					screen.blit(sprites[sprite_codes[cell]], (tile_size*col, tile_size*row))
 
 		p1 = Player(float("inf"), "R", "RED TEAM")
