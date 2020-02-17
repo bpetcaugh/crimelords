@@ -14,9 +14,9 @@ def get_objects(map):
 		for col, cell in enumerate(row_):
 			if cell == "--":
 				continue
-			elif cell == "BR":
+			elif cell == "RR":
 				objects += [Base([col, row], "R")]
-			elif cell == "BB":
+			elif cell == "RB":
 				objects += [Base([col, row], "B")]
 			elif cell == "MB":
 				objects += [Mafioso([col, row], "B")]
@@ -56,6 +56,8 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 				pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
 				screen.blit(sprites[sprite_codes["--"]], (tile_size*col, tile_size*row))
 				if cell != "--":
+					print(cell)
+					print(sprite_codes)
 					screen.blit(sprites[sprite_codes[cell]], (tile_size*col, tile_size*row))
 
 		p1 = Player(float("inf"), "R", "RED TEAM")

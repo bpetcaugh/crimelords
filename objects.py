@@ -296,7 +296,7 @@ class Base(GameObject):
 		self.build_max = 1
 		self.alive = True
 		self.destructable = True
-		super(Base, self).__init__("Base", loc, color, "B"+color)
+		super(Base, self).__init__("Base", loc, color, "R"+color)
 
 	def build(self, type, loc, objects, player):
 		canBuild = True
