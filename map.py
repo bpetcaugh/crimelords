@@ -15,14 +15,14 @@ class Map: # always 40x40 i am not going to have size changeable this is too dif
 				# elif len(fc.split(os.linesep)) < 40:
 				# 	print("the map in the file '{}' is not 40x40 (too few rows)".format(src_file))
 				# else:
-				for n, unsplit_row in enumerate(fc.split(os.linesep)):
-					row = unsplit_row.rstrip().split(" ")
-					if len(row) > 40:
-						print("the map in the file '{}' is not 40x40 (row {} is too long)".format(src_file, n))
-					elif len(row) < 40:
-						print("the map in the file '{}' is not 40x40 (row {} is too short)".format(src_file, n))
-					if len(row) != 40:
-						return
+				# 	for n, unsplit_row in enumerate(fc.split(os.linesep)):
+				# 		row = unsplit_row.rstrip().split(" ")
+				# 		if len(row) > 40:
+				# 			print("the map in the file '{}' is not 40x40 (row {} is too long)".format(src_file, n))
+				# 		elif len(row) < 40:
+				# 			print("the map in the file '{}' is not 40x40 (row {} is too short)".format(src_file, n))
+				# 		if len(row) != 40:
+				# 			return
 
 				for row_idx, row in enumerate(fc.split(os.linesep)): # \n bad need os-specific line ending
 					for col, tile in enumerate(row.rstrip().split(" ")):
