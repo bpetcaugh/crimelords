@@ -1,5 +1,3 @@
-import os
-
 class Map: # always 40x40 i am not going to have size changeable this is too difficult
 	def __init__(self, src_file, background="", array=[]):
 		self.src = src_file
@@ -11,12 +9,12 @@ class Map: # always 40x40 i am not going to have size changeable this is too dif
 			with open(src_file) as f:
 				fc = f.read()
 				print(fc)
-				# if len(fc.split(os.linesep)) > 40:
+				# if len(fc.split("\n")) > 40:
 				# 	print("the map in the file '{}' is not 40x40 (too many rows)".format(src_file))
-				# elif len(fc.split(os.linesep)) < 40:
+				# elif len(fc.split("\n")) < 40:
 				# 	print("the map in the file '{}' is not 40x40 (too few rows)".format(src_file))
 				# else:
-				# 	for n, unsplit_row in enumerate(fc.split(os.linesep)):
+				# 	for n, unsplit_row in enumerate(fc.split("\n")):
 				# 		row = unsplit_row.rstrip().split(" ")
 				# 		if len(row) > 40:
 				# 			print("the map in the file '{}' is not 40x40 (row {} is too long)".format(src_file, n))
@@ -25,7 +23,7 @@ class Map: # always 40x40 i am not going to have size changeable this is too dif
 				# 		if len(row) != 40:
 				# 			return
 
-				for row_idx, row in enumerate(fc.split(os.linesep)): # \n bad need os-specific line ending
+				for row_idx, row in enumerate(fc.split("\n")):
 					for col, tile in enumerate(row.rstrip().split(" ")):
 						self.map[row_idx][col] = tile
 		else:
