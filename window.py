@@ -74,6 +74,8 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 		for obj in obj_copy:
 			objects += [teams[0](p1, obj, obj_copy)]
 
+		# loop through objects n add to red teams stuff here
+
 		game_map = render_map(game_map, objects)
 		clock.tick(framerate)
 		pygame.display.flip()
@@ -81,6 +83,8 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 		obj_copy = copy.copy(objects)
 		for obj in obj_copy:
 			objects += [teams[1](p1, obj, obj_copy)]
+
+		# loop through objects n add to blue teams stuff here
 
 		game_map = render_map(game_map, objects)
 		clock.tick(framerate)
