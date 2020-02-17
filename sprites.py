@@ -21,6 +21,6 @@ sprite_codes = {
 	"MR": "mafiosored",
 	"HB": "hitmanblue",
 	"HR": "hitmanred",
-	"BB": "restaurantblue",
-	"BR": "restaurantred"
+	"RB": "restaurantblue",
+	"RR": "restaurantred"
 }
