@@ -342,12 +342,12 @@ class Bank(GameObject):
 		self.destructable = False
 		super(Bank, self).__init__("Bank", loc, color, "BA")
 
-class Neighborhood(GameObject):
+class Police_Station(GameObject):
 	def __init__(self, loc, color):
 		self.hp = 2
 		self.ap = 0
 		self.mp = 0
 		self.move_max = 0
 		self.alive = True
-		self.destructable = True
-		super(Neighborhood, self).__init__("Neighborhood", loc, color, "NE")
+		self.destructable = False
+		super(Police_Station, self).__init__("Police Station", loc, color, "NE")
