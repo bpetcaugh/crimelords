@@ -3,6 +3,7 @@ import random
 
 built = False
 def turn(me, unit, objects):
+	print(me.money)
 	dirs = random.choice([(0, 1), (1, 0), (-1, 0), (0, -1)])
 	if unit.type == "Mafioso" and unit.color == me.color and not built:
 		built == True

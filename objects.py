@@ -10,26 +10,11 @@ def distance(p1, p2):
 	return math.sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2))
 
 class Player():
-	def __init__(self, r, color, name):
-		self.resources = r
+	def __init__(self, i, m, color, name):
+		self.influence = i
+		self.money = m
 		self.color = color
 		self.team_name = name
-
-	def player_turn(self, game_stats):
-		#In PROGRESS
-		pass
-
-	def get_resources(self):
-		return self.resources
-
-	def get_color(self):
-		return self.game_color
-
-	def get_name(self):
-		return self.team_name
-
-	def mod_resources(self, amount):
-		self.resources += amount
 
 class GameObject():
 	#Type:Base, Building,
@@ -180,11 +165,11 @@ class Mafioso(Unit):
 # 			if o.get_location() == loc:
 # 				canBuild = False
 #
-# 		if type == "Mafioso" and player.get_resources() < 10:
+# 		if type == "Mafioso" and player.money < 10:
 # 			canBuild = False
-# 		if type == "Demo" and player.get_resources() < 500:
+# 		if type == "Demo" and player.money < 500:
 # 			canBuild = False
-# 		if type == "Hitman" and player.get_resources() < 20:
+# 		if type == "Hitman" and player.money < 20:
 # 			canBuild = False
 #
 # 		if canBuild:
@@ -304,11 +289,11 @@ class Base(GameObject):
 			if o.location == loc:
 				canBuild = False
 
-		if type == "Mafioso" and player.get_resources() < 10:
+		if type == "Mafioso" and player.money < 10:
 			canBuild = False
-		if type == "Demo" and player.get_resources() < 500:
+		if type == "Demo" and player.money < 500:
 			canBuild = False
-		if type == "Hitman" and player.get_resources() < 20:
+		if type == "Hitman" and player.money < 20:
 			canBuild = False
 
 		if canBuild:
@@ -317,13 +302,13 @@ class Base(GameObject):
 					if (abs(loc[0] - self.location[0]) <= self.build_max) and (abs(loc[1] - self.location[1]) <= self.build_max):
 						if type == "Mafioso":
 							objects.append(Mafioso(loc, self.color))
-							player.mod_resources(-10)
+							player.money -= 10
 						elif type == "Demo":
 							objects.append(Demo(loc, self.color))
-							player.mod_resources(-500)
+							player.money -= 150
 						elif type == "Hitman":
 							objects.append(Hitman(loc, self.color))
-							player.mod_resources(-20)
+							player.money -= 20
 
 						return objects
 
@@ -333,21 +318,30 @@ class Base(GameObject):
 				self.build(list[0]['build'][0], color ,list[0]['build'][1] ,objects, player)
 
 class Bank(GameObject):
-	def __init__(self, loc, color):
+	def __init__(self, loc):
 		self.hp = 2
 		self.ap = 0
 		self.mp = 0
 		self.move_max = 0
 		self.alive = True
 		self.destructable = False
-		super(Bank, self).__init__("Bank", loc, color, "BA")
+		super(Bank, self).__init__("Bank", loc, "N", "B2")
 
-class Neighborhood(GameObject):
-	def __init__(self, loc, color):
+class PoliceStation(GameObject):
+	def __init__(self, loc):
 		self.hp = 2
 		self.ap = 0
 		self.mp = 0
 		self.move_max = 0
 		self.alive = True
 		self.destructable = True
-		super(Neighborhood, self).__init__("Neighborhood", loc, color, "NE")
+		super(PoliceStation, self).__init__("Police", loc, "N", "P2")
+
+# this is how i'm going to extend buildings over multiple tiles (horrible idea but whatever). their type changes every round and for all intents and purposes does not exist. please dont think too hard about this, this was just the first solution i came up with and i dont want users trying to interfere with it in some way
+class Ext(GameObject):
+	def __init__(self, t, loc, color, icon, destructable=False):
+		super(Ext, self).__init__("ext"+str(id(self))+"_"+t, loc, color, icon)
+		self.destructable = destructable
+
+# centers of builidngs:
+# police station: P2

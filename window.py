@@ -5,6 +5,7 @@ import sys
 from map import Map
 from sprites import load_sprites, sprite_codes
 from objects import *
+from points import calc_points
 
 framerate = 5
 
@@ -14,14 +15,28 @@ def get_objects(map):
 		for col, cell in enumerate(row_):
 			if cell == "--":
 				continue
-			elif cell == "RR":
-				objects += [Base([col, row], "R")]
-			elif cell == "RB":
-				objects += [Base([col, row], "B")]
-			elif cell == "MB":
-				objects += [Mafioso([col, row], "B")]
-			elif cell == "MR":
-				objects += [Mafioso([col, row], "R")]
+			else:
+				try:
+					objects += [{
+						"RR": Base([col, row], "R"),
+						"RB": Base([col, row], "B"),
+						"MR": Mafioso([col, row], "R"),
+						"MB": Mafioso([col, row], "B"),
+						"P1": Ext("Police", [col, row], "N", "P1"),
+						"P2": PoliceStation([col, row]),
+						"P3": Ext("Police", [col, row], "N", "P3"),
+						"P4": Ext("Police", [col, row], "N", "P4"),
+						"P5": Ext("Police", [col, row], "N", "P5"),
+						"P6": Ext("Police", [col, row], "N", "P6"),
+						"B1": Ext("Bank", [col, row], "N", "B1"),
+						"B2": Bank([col, row]),
+						"B3": Ext("Bank", [col, row], "N", "B3"),
+						"B4": Ext("Bank", [col, row], "N", "B4"),
+						"B5": Ext("Bank", [col, row], "N", "B5"),
+						"B6": Ext("Bank", [col, row], "N", "B6")
+					}[cell]]
+				except KeyError:
+					pass
 	return objects
 
 def render_map(old_map, objects):
@@ -45,6 +60,9 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	sprites = load_sprites()
 	print("loaded!")
 
+	p1 = Player(0, 10, "R", "RED TEAM")
+	p2 = Player(0, 10, "B", "BLUE TEAM")
+
 	while going:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -56,25 +74,37 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 				pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
 				screen.blit(sprites[sprite_codes["--"]], (tile_size*col, tile_size*row))
 				if cell != "--":
-					print(cell)
-					print(sprite_codes)
 					screen.blit(sprites[sprite_codes[cell]], (tile_size*col, tile_size*row))
 
-		p1 = Player(float("inf"), "R", "RED TEAM")
-		p2 = Player(float("inf"), "B", "BLUE TEAM")
-
 		obj_copy = copy.copy(objects)
-		objects = []
+		objects, buildings, units = [], [], []
 		for obj in obj_copy:
 			objects += [teams[0](p1, obj, obj_copy)]
+			if obj.type in ["Mafioso", "Demo", "Hitman"]:
+				units += [obj]
+			else:
+				buildings += [obj]
+
+		dri, drm = calc_points(buildings, units, "R")
+		p1.influence += dri
+		p1.money += drm
 
 		game_map = render_map(game_map, objects)
 		clock.tick(framerate)
 		pygame.display.flip()
 
 		obj_copy = copy.copy(objects)
+		objects, buildings, units = [], [], []
 		for obj in obj_copy:
-			objects += [teams[1](p1, obj, obj_copy)]
+			objects += [teams[1](p2, obj, obj_copy)]
+			if obj.type in ["Mafioso", "Demo", "Hitman"]:
+				units += [obj]
+			else:
+				buildings += [obj]
+
+		dbi, dbm = calc_points(buildings, units, "B")
+		p2.influence += dbi
+		p2.money += dbm
 
 		game_map = render_map(game_map, objects)
 		clock.tick(framerate)

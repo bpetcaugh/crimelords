@@ -11,3 +11,8 @@ def turn(me, unit, objects):
 		if not built:
 			unit.build("Mafioso", [unit.location[0]+dirs[0], unit.location[0]+dirs[1]], objects, me)
 	return unit
+def blue_moneycount(bl_money): 
+	print(bl_money)
+def blue_influencecount(bl_influence): 
+	print(bl_influence)
+
