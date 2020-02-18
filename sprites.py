@@ -28,5 +28,6 @@ sprite_codes = {
 	"B3": "banktopright",
 	"B4": "bankbottomleft",
 	"B5": "bankbottommiddle",
-	"B6": "bankbottomright"
+	"B6": "bankbottomright",
+	"T1": "townhall"
 }
