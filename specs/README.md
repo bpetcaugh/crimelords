@@ -90,7 +90,7 @@ Two types of buildings, those that give MONEY when captured, and those that give
 | --------|-------|------------|
 | Move    | def move(self, dx, dy, objects):| Moves a movable unit to described tile|
 | Attack  | def strike(self, loc, objects):| Attacks an enemy unit on with a selected friendly unit|
-|
+| Buy unit| def build(self, type, loc, objects, player):| Buys a purchasable unit with money|
 
 
 ##Other Information:
