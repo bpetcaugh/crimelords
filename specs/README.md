@@ -89,7 +89,7 @@ Two types of buildings, those that give MONEY when captured, and those that give
 | Command | Description|
 | --------|------------|
 | Move    | |
-| Attack  | |
+| Attack  | def strike(self, loc, objects):|
 
 
 ##Other Information:
