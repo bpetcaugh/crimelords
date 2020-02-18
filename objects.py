@@ -337,7 +337,7 @@ class PoliceStation(GameObject):
 		self.destructable = False
 		super(PoliceStation, self).__init__("Police", loc, "N", "P2")
 
-class Townhall(GameObject):
+class TownHall(GameObject):
 	def __init__(self, loc):
 		self.hp = 2
 		self.ap = 0
