@@ -33,7 +33,8 @@ def get_objects(map):
 						"B3": Ext("Bank", [col, row], "N", "B3"),
 						"B4": Ext("Bank", [col, row], "N", "B4"),
 						"B5": Ext("Bank", [col, row], "N", "B5"),
-						"B6": Ext("Bank", [col, row], "N", "B6")
+						"B6": Ext("Bank", [col, row], "N", "B6"),
+						"T1": Townhall([col, row], "T")
 					}[cell]]
 				except KeyError:
 					pass
