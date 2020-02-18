@@ -63,6 +63,8 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	p1 = Player(0, 10, "R", "RED TEAM")
 	p2 = Player(0, 10, "B", "BLUE TEAM")
 
+	screen.blit(sprites["crimelords_map"], (0, 0))
+
 	while going:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -71,8 +73,8 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 		screen.fill((0, 0, 0))
 		for row, row_ in enumerate(game_map.map):
 			for col, cell in enumerate(row_):
-				pygame.draw.rect(screen, (0, 0, 0), [tile_size*col, tile_size*row, tile_size, tile_size])
-				screen.blit(sprites[sprite_codes["--"]], (tile_size*col, tile_size*row))
+				screen.blit(sprites["crimelords_map"], (0, 0))
+				# screen.blit(sprites[sprite_codes["--"]], (tile_size*col, tile_size*row))
 				if cell != "--":
 					screen.blit(sprites[sprite_codes[cell]], (tile_size*col, tile_size*row))
 
