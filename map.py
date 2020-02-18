@@ -8,7 +8,6 @@ class Map: # always 40x40 i am not going to have size changeable this is too dif
 			self.map = [["--" for col in range(40)] for row in range(40)] # empty map in case of errors
 			with open(src_file) as f:
 				fc = f.read()
-				print(fc)
 				# if len(fc.split("\n")) > 40:
 				# 	print("the map in the file '{}' is not 40x40 (too many rows)".format(src_file))
 				# elif len(fc.split("\n")) < 40:
