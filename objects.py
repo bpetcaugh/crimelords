@@ -14,7 +14,7 @@ class Player():
 		self.influence = i
 		self.money = m
 		self.color = color
-		self.team_name = names
+		self.team_name = name
 
 class GameObject():
 	#Type:Base, Building,
