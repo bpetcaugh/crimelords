@@ -165,11 +165,11 @@ class Mafioso(Unit):
 # 			if o.get_location() == loc:
 # 				canBuild = False
 #
-# 		if type == "Mafioso" and player.get_resources() < 10:
+# 		if type == "Mafioso" and player.money < 10:
 # 			canBuild = False
-# 		if type == "Demo" and player.get_resources() < 500:
+# 		if type == "Demo" and player.money < 500:
 # 			canBuild = False
-# 		if type == "Hitman" and player.get_resources() < 20:
+# 		if type == "Hitman" and player.money < 20:
 # 			canBuild = False
 #
 # 		if canBuild:
@@ -289,11 +289,11 @@ class Base(GameObject):
 			if o.location == loc:
 				canBuild = False
 
-		if type == "Mafioso" and player.get_resources() < 10:
+		if type == "Mafioso" and player.money < 10:
 			canBuild = False
-		if type == "Demo" and player.get_resources() < 500:
+		if type == "Demo" and player.money < 500:
 			canBuild = False
-		if type == "Hitman" and player.get_resources() < 20:
+		if type == "Hitman" and player.money < 20:
 			canBuild = False
 
 		if canBuild:
