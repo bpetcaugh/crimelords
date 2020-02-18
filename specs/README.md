@@ -86,10 +86,11 @@ Two types of buildings, those that give MONEY when captured, and those that give
 
 ### How to 
 
-| Command | Description|
-| --------|------------|
-| Move    | |
-| Attack  | def strike(self, loc, objects):|
+| Command | How to| Description|
+| --------|-------|------------|
+| Move    | def move(self, dx, dy, objects):| Moves a movable unit to described tile|
+| Attack  | def strike(self, loc, objects):| Attacks an enemy unit on with a selected friendly unit|
+|
 
 
 ##Other Information:
