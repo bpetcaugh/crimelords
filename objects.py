@@ -325,7 +325,7 @@ class Bank(GameObject):
 		self.move_max = 0
 		self.alive = True
 		self.destructable = False
-		super(Bank, self).__init__("Bank", loc, "N", "BA")
+		super(Bank, self).__init__("Bank", loc, "N", "B2")
 
 class PoliceStation(GameObject):
 	def __init__(self, loc):

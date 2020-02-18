@@ -27,7 +27,13 @@ def get_objects(map):
 						"P3": Ext("Police", [col, row], "N", "P3"),
 						"P4": Ext("Police", [col, row], "N", "P4"),
 						"P5": Ext("Police", [col, row], "N", "P5"),
-						"P6": Ext("Police", [col, row], "N", "P6")
+						"P6": Ext("Police", [col, row], "N", "P6"),
+						"B1": Ext("Bank", [col, row], "N", "B1"),
+						"B2": Bank([col, row]),
+						"B3": Ext("Bank", [col, row], "N", "B3"),
+						"B4": Ext("Bank", [col, row], "N", "B4"),
+						"B5": Ext("Bank", [col, row], "N", "B5"),
+						"B6": Ext("Bank", [col, row], "N", "B6")
 					}[cell]]
 				except KeyError:
 					pass
