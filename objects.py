@@ -14,7 +14,7 @@ class Player():
 		self.influence = i
 		self.money = m
 		self.color = color
-		self.team_name = names
+		self.team_name = name
 
 class GameObject():
 	#Type:Base, Building,
@@ -302,13 +302,13 @@ class Base(GameObject):
 					if (abs(loc[0] - self.location[0]) <= self.build_max) and (abs(loc[1] - self.location[1]) <= self.build_max):
 						if type == "Mafioso":
 							objects.append(Mafioso(loc, self.color))
-							player.mod_resources(-10)
+							player.money -= 10
 						elif type == "Demo":
 							objects.append(Demo(loc, self.color))
-							player.mod_resources(-500)
+							player.money -= 150
 						elif type == "Hitman":
 							objects.append(Hitman(loc, self.color))
-							player.mod_resources(-20)
+							player.money -= 20
 
 						return objects
 

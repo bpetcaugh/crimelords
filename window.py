@@ -54,8 +54,8 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	sprites = load_sprites()
 	print("loaded!")
 
-	influence = [0, 0]
-	money = [0, 0]
+	p1 = Player(0, 10, "R", "RED TEAM")
+	p2 = Player(0, 10, "B", "BLUE TEAM")
 
 	while going:
 		for event in pygame.event.get():
@@ -70,15 +70,16 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 				if cell != "--":
 					screen.blit(sprites[sprite_codes[cell]], (tile_size*col, tile_size*row))
 
-		p1 = Player(influence[0], money[0], "R", "RED TEAM")
-		p2 = Player(influence[0], money[0], "B", "BLUE TEAM")
-
 		obj_copy = copy.copy(objects)
-		objects = []
+		objects, buildings, units = [], [], []
 		for obj in obj_copy:
 			objects += [teams[0](p1, obj, obj_copy)]
-			
-		dri, drm = calc_points(objects, "R")
+			if obj.type in ["Mafioso", "Demo", "Hitman"]:
+				units += [obj]
+			else:
+				buildings += [obj]
+
+		dri, drm = calc_points(buildings, units, "R")
 		p1.influence += dri
 		p1.money += drm
 
@@ -87,10 +88,15 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 		pygame.display.flip()
 
 		obj_copy = copy.copy(objects)
+		objects, buildings, units = [], [], []
 		for obj in obj_copy:
-			objects += [teams[1](p1, obj, obj_copy)]
+			objects += [teams[1](p2, obj, obj_copy)]
+			if obj.type in ["Mafioso", "Demo", "Hitman"]:
+				units += [obj]
+			else:
+				buildings += [obj]
 
-		dbi, dbm = calc_points(objects, "B")
+		dbi, dbm = calc_points(buildings, units, "B")
 		p2.influence += dbi
 		p2.money += dbm
 

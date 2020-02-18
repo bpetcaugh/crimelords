@@ -1,16 +1,14 @@
 from objects import distance
 
-def calc_points(objects, color, radius=3):
-	influence, money = 0, 0
-	for object in objects:
+def calc_points(buildings, units, color, radius=3):
+	influence, money = 0, 10
+	for object in buildings:
 		if object.type == "Police":
-			for object_again in objects:
-				if object_again.type in ["Mafioso", "Hitman", "Demo"]:
-					if distance(object, object_again) == radius and object_again.color == color:
-						influence = 10
+			for object_again in units:
+				if distance(object.location, object_again.location) == radius and object_again.color == color:
+					influence = 10
 		elif object.type == "Bank":
-			for object_again in objects:
-				if object_again.type in ["Mafioso", "Hitman", "Demo"]:
-					if distance(object, object_again) == radius and object_again.color == color:
-						money = 10
+			for object_again in units:
+				if distance(object.location, object_again.location) == radius and object_again.color == color:
+					money = 20
 	return influence, money
