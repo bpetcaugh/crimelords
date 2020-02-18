@@ -22,5 +22,11 @@ sprite_codes = {
 	"HB": "hitmanblue",
 	"HR": "hitmanred",
 	"RB": "restaurantblue",
-	"RR": "restaurantred"
+	"RR": "restaurantred",
+	"B1": "banktopleft",
+	"B2": "banktopmiddle",
+	"B3": "banktopright",
+	"B4": "bankbottomleft",
+	"B5": "bankbottommiddle",
+	"B6": "bankbottomright"
 }
