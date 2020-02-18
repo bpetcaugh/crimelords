@@ -84,6 +84,12 @@ Two types of buildings, those that give MONEY when captured, and those that give
   -	A unit can deposit all of their influence in one turn
   -	Not destructible 
 
+### How to 
+
+| Command | Description|
+| --------|------------|
+| Move    | |
+| Attack  | |
 
 
 ##Other Information:
