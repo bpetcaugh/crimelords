@@ -34,7 +34,7 @@ def get_objects(map):
 						"B4": Ext("Bank", [col, row], "N", "B4"),
 						"B5": Ext("Bank", [col, row], "N", "B5"),
 						"B6": Ext("Bank", [col, row], "N", "B6"),
-						"T1": Townhall([col, row], "T")
+						"T1": TownHall([col, row])
 					}[cell]]
 				except KeyError:
 					pass
@@ -45,6 +45,13 @@ def render_map(old_map, objects):
 	for object in objects:
 		nmap.map[object.location[1]][object.location[0]] = object.icon
 	return nmap
+
+class Background(pygame.sprite.Sprite):
+	def __init__(self, image_file, location):
+		pygame.sprite.Sprite.__init__(self)
+		self.image = pygame.image.load(image_file)
+		self.rect = self.image.get_rect()
+		self.rect.left, self.rect.top = location
 
 def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	tile_size = 18
@@ -64,7 +71,7 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	p1 = Player(0, 10, "R", "RED TEAM")
 	p2 = Player(0, 10, "B", "BLUE TEAM")
 
-	screen.blit(sprites["crimelords_map"], (0, 0))
+	background = Background("./sprites/crimelords_map.png", (0, 0))
 
 	while going:
 		for event in pygame.event.get():
@@ -72,9 +79,9 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 				sys.exit()
 
 		screen.fill((0, 0, 0))
+		screen.blit(background.image, background.rect)
 		for row, row_ in enumerate(game_map.map):
 			for col, cell in enumerate(row_):
-				screen.blit(sprites["crimelords_map"], (0, 0))
 				# screen.blit(sprites[sprite_codes["--"]], (tile_size*col, tile_size*row))
 				if cell != "--":
 					screen.blit(sprites[sprite_codes[cell]], (tile_size*col, tile_size*row))

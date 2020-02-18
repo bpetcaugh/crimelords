@@ -345,7 +345,7 @@ class TownHall(GameObject):
 		self.move_max = 0
 		self.alive = True
 		self.destructable = False
-		super(Townhall, self).__init__("Townhall", loc, "N", "T1")
+		super(TownHall, self).__init__("Town Hall", loc, "N", "T1")
 
 # this is how i'm going to extend buildings over multiple tiles (horrible idea but whatever). their type changes every round and for all intents and purposes does not exist. please dont think too hard about this, this was just the first solution i came up with and i dont want users trying to interfere with it in some way
 class Ext(GameObject):

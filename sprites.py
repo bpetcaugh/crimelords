@@ -8,6 +8,8 @@ def load_sprites():
 			img = pygame.image.load(os.path.join("sprites", filename))
 			if filename != "crimelords_map.png":
 				s[filename.split(".png")[0]] = pygame.transform.scale(img, (18, 18))
+			else:
+				s[filename.split(".png")[0]] = img
 	return s
 
 sprite_codes = {
@@ -30,5 +32,5 @@ sprite_codes = {
 	"B4": "bankbottomleft",
 	"B5": "bankbottommiddle",
 	"B6": "bankbottomright",
-	"TH": "townhall"
+	"T1": "townhall"
 }
