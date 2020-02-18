@@ -9,6 +9,15 @@ import random
 def distance(p1, p2):
 	return math.sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2))
 
+class Background(pygame.sprite.Sprite):
+	def __init__(self, image_file, location):
+		pygame.sprite.Sprite.__init__(self)
+		self.image = pygame.image.load(image_file)
+		self.rect = self.image.get_rect()
+		self.rect.left, self.rect.top = location
+
+# game objects below
+
 class Player():
 	def __init__(self, i, m, color, name):
 		self.influence = i
@@ -334,8 +343,18 @@ class PoliceStation(GameObject):
 		self.mp = 0
 		self.move_max = 0
 		self.alive = True
-		self.destructable = True
+		self.destructable = False
 		super(PoliceStation, self).__init__("Police", loc, "N", "P2")
+
+class TownHall(GameObject):
+	def __init__(self, loc):
+		self.hp = 2
+		self.ap = 0
+		self.mp = 0
+		self.move_max = 0
+		self.alive = True
+		self.destructable = False
+		super(TownHall, self).__init__("Town Hall", loc, "N", "T1")
 
 # this is how i'm going to extend buildings over multiple tiles (horrible idea but whatever). their type changes every round and for all intents and purposes does not exist. please dont think too hard about this, this was just the first solution i came up with and i dont want users trying to interfere with it in some way
 class Ext(GameObject):

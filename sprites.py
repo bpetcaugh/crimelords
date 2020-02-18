@@ -6,7 +6,10 @@ def load_sprites():
 	for filename in os.listdir("sprites"):
 		if filename.endswith(".png"):
 			img = pygame.image.load(os.path.join("sprites", filename))
-			s[filename.split(".png")[0]] = pygame.transform.scale(img, (18, 18))
+			if filename != "crimelords_map.png":
+				s[filename.split(".png")[0]] = pygame.transform.scale(img, (18, 18))
+			else:
+				s[filename.split(".png")[0]] = img
 	return s
 
 sprite_codes = {
