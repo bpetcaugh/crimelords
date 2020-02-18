@@ -352,7 +352,10 @@ class PoliceStation(GameObject):
 		self.destructable = True
 		super(PoliceStation, self).__init__("Police", loc, "N", "P2")
 
-# this is how i'm going to extend buildings over multiple tiles (horrible idea but whatever). their type changes every round and for all intents and purposes does not exist. please dont think too hard about this, this was just the first solution i came up with and i dont want users trying to interfere with it in some way
+# this is how i'm going to extend buildings over multiple tiles (horrible idea but whatever). 
+# their type changes every round and for all intents and purposes does not exist.
+#  please dont think too hard about this, this was just the first solution
+#  i came up with and i dont want users trying to interfere with it in some way
 class Ext(GameObject):
 	def __init__(self, t, loc, color, icon, destructable=False):
 		super(Ext, self).__init__("ext"+str(id(self))+"_"+t, loc, color, icon)
