@@ -10,26 +10,11 @@ def distance(p1, p2):
 	return math.sqrt(((p2[0]-p1[0])**2)+((p2[1]-p1[1])**2))
 
 class Player():
-	def __init__(self, r, color, name):
-		self.resources = r
+	def __init__(self, i, m, color, name):
+		self.influence = i
+		self.money = m
 		self.color = color
-		self.team_name = name
-
-	def player_turn(self, game_stats):
-		#In PROGRESS
-		pass
-
-	def get_resources(self):
-		return self.resources
-
-	def get_color(self):
-		return self.game_color
-
-	def get_name(self):
-		return self.team_name
-
-	def mod_resources(self, amount):
-		self.resources += amount
+		self.team_name = names
 
 class GameObject():
 	#Type:Base, Building,
@@ -352,10 +337,7 @@ class PoliceStation(GameObject):
 		self.destructable = True
 		super(PoliceStation, self).__init__("Police", loc, "N", "P2")
 
-# this is how i'm going to extend buildings over multiple tiles (horrible idea but whatever). 
-# their type changes every round and for all intents and purposes does not exist.
-#  please dont think too hard about this, this was just the first solution
-#  i came up with and i dont want users trying to interfere with it in some way
+# this is how i'm going to extend buildings over multiple tiles (horrible idea but whatever). their type changes every round and for all intents and purposes does not exist. please dont think too hard about this, this was just the first solution i came up with and i dont want users trying to interfere with it in some way
 class Ext(GameObject):
 	def __init__(self, t, loc, color, icon, destructable=False):
 		super(Ext, self).__init__("ext"+str(id(self))+"_"+t, loc, color, icon)

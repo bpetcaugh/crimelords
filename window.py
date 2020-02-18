@@ -5,6 +5,7 @@ import sys
 from map import Map
 from sprites import load_sprites, sprite_codes
 from objects import *
+from points import calc_points
 
 framerate = 5
 
@@ -53,6 +54,9 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	sprites = load_sprites()
 	print("loaded!")
 
+	influence = [0, 0]
+	money = [0, 0]
+
 	while going:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -66,15 +70,17 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 				if cell != "--":
 					screen.blit(sprites[sprite_codes[cell]], (tile_size*col, tile_size*row))
 
-		p1 = Player(float("inf"), "R", "RED TEAM")
-		p2 = Player(float("inf"), "B", "BLUE TEAM")
+		p1 = Player(influence[0], money[0], "R", "RED TEAM")
+		p2 = Player(influence[0], money[0], "B", "BLUE TEAM")
 
 		obj_copy = copy.copy(objects)
 		objects = []
 		for obj in obj_copy:
 			objects += [teams[0](p1, obj, obj_copy)]
-
-		# loop through objects n add to red teams stuff here
+			
+		dri, drm = calc_points(objects, "R")
+		p1.influence += dri
+		p1.money += drm
 
 		game_map = render_map(game_map, objects)
 		clock.tick(framerate)
@@ -84,7 +90,9 @@ def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 		for obj in obj_copy:
 			objects += [teams[1](p1, obj, obj_copy)]
 
-		# loop through objects n add to blue teams stuff here
+		dbi, dbm = calc_points(objects, "B")
+		p2.influence += dbi
+		p2.money += dbm
 
 		game_map = render_map(game_map, objects)
 		clock.tick(framerate)
