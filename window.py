@@ -46,13 +46,6 @@ def render_map(old_map, objects):
 		nmap.map[object.location[1]][object.location[0]] = object.icon
 	return nmap
 
-class Background(pygame.sprite.Sprite):
-	def __init__(self, image_file, location):
-		pygame.sprite.Sprite.__init__(self)
-		self.image = pygame.image.load(image_file)
-		self.rect = self.image.get_rect()
-		self.rect.left, self.rect.top = location
-
 def main(teams, game_map=Map("./maps/realmap.txt", background=""), grid=False):
 	tile_size = 18
 	screen = pygame.display.set_mode([720, 720]) # 720x720 is the window size. we can adjust as necessary
